@@ -13,7 +13,13 @@ The left-to-right diagonal =
 . The right to left diagonal = . Their absolute difference is . 
 */
 
-function diagonalDifference(arr) {
-    // Write your code here
-    return Math.abs((arr[0][0] + arr[1][1] + arr[2][2]) - (arr[0][2] + arr[1][1] + arr[2][0]))
-}
+function diagonalDifference(arr) {    
+    let diagonal1 = 0, diagonal2 = 0, n = arr.length
+    for (let i = 0; i < n; i++) {     
+        for (let j = 0; j < n; j++) {
+            if (i === j) diagonal1 += arr[i][j]
+            if (i + j === n - 1) diagonal2 += arr[i][j]     
+        }  
+    }
+    return Math.abs(diagonal1 - diagonal2)
+} 
